@@ -28,3 +28,9 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
           browser: chrome
+      - name: deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: cryptic-wildwood-87634
+          heroku_email: mikko.e.hyyrylainen@gmail.com
