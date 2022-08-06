@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/health', (req, res) => {
-  res.send('ok')
+  res.send('okz')
 })
 
 // Heroku dynamically sets a port
