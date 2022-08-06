@@ -34,3 +34,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: cryptic-wildwood-87634
           heroku_email: mikko.e.hyyrylainen@gmail.com
+          healthcheck: http://cryptic-wildwood-87634.herokuapp.com/health
+          checkstring: "ok"
