@@ -31,8 +31,8 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
           browser: chrome
-      - name: deploy
-        if: ${{ github.event_name == 'push' }}
+      - if: ${{ github.event_name == 'push' }}
+        name: deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
