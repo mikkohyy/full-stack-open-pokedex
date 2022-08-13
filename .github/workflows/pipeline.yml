@@ -41,6 +41,14 @@ jobs:
           healthcheck: http://cryptic-wildwood-87634.herokuapp.com/health
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+      - name: Deployment succeeded
+          uses: rjstone/discord-webhook-notify@v1
+          if: ${{ success() }}
+          with:
+            severity: info
+            details: A new version was deployed succesfully
+            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
