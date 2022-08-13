@@ -58,7 +58,7 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description: 'Commit ${{ COMMIT }} broke the build'
+          description: 'Commit ${{ $COMMIT }} broke the build'
           footer: 'Commit by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
