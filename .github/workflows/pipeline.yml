@@ -49,7 +49,7 @@ jobs:
           color: '#08c40e'
           text: New version of Pokedex deployed successfully!
           description: http://cryptic-wildwood-87634.herokuapp.com
-          footer: 'Made by ${{ github.actor }}'
+          footer: 'Author ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
