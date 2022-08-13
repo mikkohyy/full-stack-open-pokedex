@@ -43,13 +43,21 @@ jobs:
           rollbackonhealthcheckfailed: true
       - name: Deployment succeeded
         uses: rjstone/discord-webhook-notify@v1
-        if: success()
+        if: ${{ success() }}
         with:
           severity: info
-          color: '#08c40e'
           text: New version of Pokedex deployed successfully!
           description: http://cryptic-wildwood-87634.herokuapp.com
           footer: 'Author ${{ github.actor }}'
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Deployment failed
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with:
+          severity: error
+          text: Build failed
+          description: 'Commit ${{ join(github.event.commits.*.url, ' ') }} broke the build'
+          footer: 'Commit by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
