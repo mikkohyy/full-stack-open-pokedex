@@ -56,7 +56,7 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description: 'Commit ${{ join(github.event.commits.*.url, ' ') }} broke the build'
+          description: 'Commit ${{ github.event.commits.*.url }} broke the build'
           footer: 'Commit by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
