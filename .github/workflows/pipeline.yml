@@ -47,7 +47,7 @@ jobs:
         with:
           severity: info
           text: New version of Pokedex deployed successfully!
-          description: http://cryptic-wildwood-87634.herokuapp.com
+          description: Runs at http://cryptic-wildwood-87634.herokuapp.com
           footer: 'Author ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Deployment failed
@@ -56,7 +56,7 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description: 'Commit ${{ join(github.event.commits.*.url, ' ') }} broke the build'
+          description: 'Commit broke the build'
           footer: 'Commit by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
