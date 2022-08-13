@@ -48,7 +48,7 @@ jobs:
           severity: info
           text: New version of Pokedex deployed successfully!
           description: Runs at http://cryptic-wildwood-87634.herokuapp.com
-          footer: 'Author ${{ github.head_commit.commiter.username }}'
+          footer: 'Author ${{ github.event.head_commit.committer.username }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Deployment failed
         uses: rjstone/discord-webhook-notify@v1
@@ -56,8 +56,8 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description: 'Commit ${{ github.head_commit.url }} broke the build'
-          footer: 'Commit by ${{ github.head_commit.commiter.username }}'
+          description: 'Commit ${{ github.event.head_commit.url }} broke the build'
+          footer: 'Commit by ${{ github.event.head_commit.committer.username }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
