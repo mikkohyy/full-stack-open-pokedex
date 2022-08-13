@@ -53,12 +53,10 @@ jobs:
       - name: Deployment failed
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
-        env:
-          COMMIT: ${{ join(github.event.commits.*.url, ' ') }}
         with:
           severity: error
           text: Build failed
-          description: 'Commit $COMMIT broke the build'
+          description: 'Commit ${{ join(github.event.commits.*.url, ' ') }} broke the build'
           footer: 'Commit by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
