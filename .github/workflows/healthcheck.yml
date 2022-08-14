@@ -12,6 +12,6 @@ jobs:
       - name: Check that the service is running
         uses: jtalk/url-health-check-action@v2
         with:
-          url: http://cryptic-wildwood-87634.herokuapp.com/broken
+          url: http://cryptic-wildwood-87634.herokuapp.com/brokenLink
           max-attempts: 3
           retry-delay: 6s
