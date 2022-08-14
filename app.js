@@ -5,6 +5,10 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
+app.get('/broken', (req, res) => {
+  res.status(404).send('It is broken')
+})
+
 app.get('/version', (req, res) => {
   res.send('0.0.73')
 })
